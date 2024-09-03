@@ -96,7 +96,7 @@ export function DarkPhotographerPortfolio() {
         className="relative h-screen flex items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('/assets/bg.jpg?height=1080&width=1920&text=Featured+Photo')",
+            `url("/assets/bg.jpg?height=1080&width=1920&text=Featured+Photo")`,
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
