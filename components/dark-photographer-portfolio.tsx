@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Camera, User, Phone, Mail, Image, Instagram, Facebook, Twitter, Linkedin, Youtube } from 'lucide-react'
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import { Camera, User, Phone, Mail, Image, Instagram, Facebook, Twitter, Linkedin, Youtube } from "lucide-react"
 
 // Define the type for a portfolio item
 type PortfolioItem = {
@@ -27,8 +27,8 @@ export function DarkPhotographerPortfolio() {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const fadeVariants = {
@@ -43,7 +43,7 @@ export function DarkPhotographerPortfolio() {
       const sectionTop = section.offsetTop - navbarHeight
       window.scrollTo({
         top: sectionTop,
-        behavior: 'smooth'
+        behavior: "smooth"
       })
     }
   }
