@@ -110,7 +110,7 @@ export function DarkPhotographerPortfolio() {
                 Professional Photographer
               </p>
               <p className="text-lg md:text-xl text-gray-400">
-                Capturing life's precious moments
+                Capturing life&apos;s precious moments
               </p>
             </div>
             <div className="md:w-1/2 flex justify-center md:justify-end">
@@ -145,8 +145,8 @@ export function DarkPhotographerPortfolio() {
             </div>
             <div className="md:w-1/2 md:pl-10">
               <p className="text-gray-300 mb-4">
-                Hello! I'm Dev Makwana, a passionate photographer based in
-                Rajkot, Gujrat. For over 5 years, I've been capturing life's
+                Hello! I&apos;m Dev Makwana, a passionate photographer based in
+                Rajkot, Gujrat. For over 5 years, I&apos;ve been capturing life&apos;s
                 most beautiful and fleeting moments through my lens. My journey
                 into photography began with a love for storytelling and a desire
                 to preserve memories in a way that words cannot.
@@ -160,10 +160,10 @@ export function DarkPhotographerPortfolio() {
                 the emotions and essence of the people and places I photograph.
               </p>
               <p className="text-gray-300 mb-4">
-                When I'm not behind the camera, you can find me exploring new
+                When I&apos;m not behind the camera, you can find me exploring new
                 places, seeking inspiration in nature, or enjoying a good cup of
                 coffee at a local café. Photography, to me, is not just about
-                taking pictures; it's about creating a connection, evoking
+                taking pictures; it&apos;s about creating a connection, evoking
                 emotions, and sharing stories.
               </p>
               <p className="text-gray-300 mb-4">
@@ -241,7 +241,7 @@ export function DarkPhotographerPortfolio() {
               <Camera className="w-12 h-12 text-purple-400 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Event Coverage</h3>
               <p className="text-gray-300">
-                From corporate events to family gatherings, we'll document your
+                From corporate events to family gatherings, we&apos;ll document your
                 special occasions.
               </p>
             </div>
