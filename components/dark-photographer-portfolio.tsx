@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Camera, User, Phone, Mail, Image, Instagram, Facebook, Twitter, Linkedin, Youtube } from "lucide-react"
+import { Camera, User, Phone, Mail, Image, Instagram, Facebook, Twitter, Linkedin, Youtube, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 // Define the type for a portfolio item
 type PortfolioItem = {
@@ -47,6 +48,27 @@ export function DarkPhotographerPortfolio() {
       })
     }
   }
+
+  const [formData, setFormData] = useState({
+    name: '',
+    message: '',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { name, message } = formData;
+
+    // WhatsApp prewritten message link
+    const whatsappMessage = `https://wa.me/918923928116?text=Hi, my name is ${encodeURIComponent(name)}. ${encodeURIComponent(message)}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappMessage, '_blank');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -95,8 +117,7 @@ export function DarkPhotographerPortfolio() {
       <section
         className="relative h-screen flex items-center justify-center bg-cover bg-center"
         style={{
-          backgroundImage:
-            `url("/assets/bg.jpg?height=1080&width=1920&text=Featured+Photo")`,
+          backgroundImage: `url("/assets/bg.jpg?height=1080&width=1920&text=Featured+Photo")`,
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -146,10 +167,10 @@ export function DarkPhotographerPortfolio() {
             <div className="md:w-1/2 md:pl-10">
               <p className="text-gray-300 mb-4">
                 Hello! I&apos;m Dev Makwana, a passionate photographer based in
-                Rajkot, Gujrat. For over 5 years, I&apos;ve been capturing life&apos;s
-                most beautiful and fleeting moments through my lens. My journey
-                into photography began with a love for storytelling and a desire
-                to preserve memories in a way that words cannot.
+                Rajkot, Gujrat. For over 5 years, I&apos;ve been capturing
+                life&apos;s most beautiful and fleeting moments through my lens.
+                My journey into photography began with a love for storytelling
+                and a desire to preserve memories in a way that words cannot.
               </p>
               <p className="text-gray-300 mb-4">
                 I specialize in portrait, landscape, wedding, or fashion
@@ -160,11 +181,11 @@ export function DarkPhotographerPortfolio() {
                 the emotions and essence of the people and places I photograph.
               </p>
               <p className="text-gray-300 mb-4">
-                When I&apos;m not behind the camera, you can find me exploring new
-                places, seeking inspiration in nature, or enjoying a good cup of
-                coffee at a local café. Photography, to me, is not just about
-                taking pictures; it&apos;s about creating a connection, evoking
-                emotions, and sharing stories.
+                When I&apos;m not behind the camera, you can find me exploring
+                new places, seeking inspiration in nature, or enjoying a good
+                cup of coffee at a local café. Photography, to me, is not just
+                about taking pictures; it&apos;s about creating a connection,
+                evoking emotions, and sharing stories.
               </p>
               <p className="text-gray-300 mb-4">
                 Thank you for visiting my portfolio. I look forward to the
@@ -224,26 +245,47 @@ export function DarkPhotographerPortfolio() {
               <h3 className="text-xl font-semibold mb-2">
                 Wedding Photography
               </h3>
-              <p className="text-gray-300">
+              <p className="text-gray-300 pb-10">
                 Capture the magic of your special day with our professional
                 wedding photography services.
               </p>
+              <Link
+                href="/slider"
+                className="flex items-center text-blue-400 hover:text-blue-300"
+              >
+                See More
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </div>
             <div className="bg-gray-700 p-6 rounded-lg shadow-md">
               <User className="w-12 h-12 text-green-400 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Portrait Sessions</h3>
-              <p className="text-gray-300">
+              <p className="text-gray-300 pb-10">
                 Showcase your personality with our expertly crafted portrait
                 photography sessions.
               </p>
+              <Link
+                href={`/`}
+                className="flex items-center text-blue-400 hover:text-blue-300"
+              >
+                See More
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </div>
             <div className="bg-gray-700 p-6 rounded-lg shadow-md">
               <Camera className="w-12 h-12 text-purple-400 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Event Coverage</h3>
-              <p className="text-gray-300">
-                From corporate events to family gatherings, we&apos;ll document your
-                special occasions.
+              <p className="text-gray-300 pb-10">
+                From corporate events to family gatherings, we&apos;ll document
+                your special occasions.
               </p>
+              <Link
+                href="/image-grid"
+                className="flex items-center text-blue-400 hover:text-blue-300"
+              >
+                See More
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -261,7 +303,7 @@ export function DarkPhotographerPortfolio() {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 text-center">Contact Me</h2>
           <div className="max-w-lg mx-auto">
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label
                   htmlFor="name"
@@ -273,21 +315,10 @@ export function DarkPhotographerPortfolio() {
                   type="text"
                   id="name"
                   name="name"
-                  className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-300"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white"
+                  required
                 />
               </div>
               <div>
@@ -301,13 +332,16 @@ export function DarkPhotographerPortfolio() {
                   id="message"
                   name="message"
                   rows={4}
-                  className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white"
+                  required
                 ></textarea>
               </div>
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
                 >
                   Send Message
                 </button>
