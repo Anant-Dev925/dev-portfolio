@@ -303,7 +303,7 @@ export function DarkPhotographerPortfolio() {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 text-center">Contact Me</h2>
           <div className="max-w-lg mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form className="space-y-4">
               <div>
                 <label
                   htmlFor="name"
@@ -352,11 +352,11 @@ export function DarkPhotographerPortfolio() {
             <div className="flex justify-center space-x-6">
               <div className="flex items-center">
                 <Phone className="w-6 h-6 text-gray-400 mr-2" />
-                <span className="text-gray-300">+91 78189-99960</span>
+                <span className="text-gray-300">+91 XXXXX-XXXXX</span>
               </div>
               <div className="flex items-center">
                 <Mail className="w-6 h-6 text-gray-400 mr-2" />
-                <span className="text-gray-300">devmakwana338@gmail.com</span>
+                <span className="text-gray-300">devmak338@gmail.com</span>
               </div>
             </div>
             <div className="flex justify-center space-x-6">
